@@ -1,4 +1,4 @@
-$fn = 45;
+$fn = 180;
 
 render() knob();
 
@@ -10,7 +10,7 @@ module knob(
         inD=9.8, // 9.5 mm
         inH=7, // 6.38 mm (lower bound)
         handleW=6.75, // 6.9 mm
-        handleH=20, // 30 mm (upper bound)
+        handleH=10, // 30 mm (upper bound)
         pinD=3.5, // 3.8 mm
         pinH=3.2 // 6 mm - 2.5 mm (knob wall)
     ) {
@@ -22,7 +22,7 @@ module knob(
         oneHalf(d, baseH, inD, inH, handleW, handleH);
     translate([d, 0, 0]) union() {
         oneHalf(d, baseH, inD, inH, handleW, handleH);
-        translate([0, inD / 2, inH / 2])
+        translate([0, inD / 2, pinD / 2])
             rotate([90, 0, 0])
                 cylinder(h = pinH, d = pinD);
     }
